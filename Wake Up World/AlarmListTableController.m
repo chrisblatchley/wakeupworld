@@ -26,13 +26,11 @@
 	tableViewAlarms.separatorStyle = UITableViewCellSeparatorStyleNone;
 	tableViewAlarms.rowHeight = 70;
 	tableViewAlarms.backgroundColor = [UIColor clearColor];
-	imageView.image = [UIImage imageNamed:@"gradientBackground.png"];
+	imageAlarmView.image = [UIImage imageNamed:@"gradientBackground.png"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *alarmListData = [defaults objectForKey:@"AlarmListData"];
     self.listOfAlarms = [NSKeyedUnarchiver unarchiveObjectWithData:alarmListData];
-
-
 }
 
 
@@ -51,10 +49,10 @@
 //
 // Returns the number of rows in a given section.
 //
-- (NSInteger)tableViewAlarms:(UITableView *)tableViewAlarms numberOfRowsInSection:(NSInteger)section
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(self.listOfAlarms){
-        
+    if(self.listOfAlarms)
+    {
         return [self.listOfAlarms count];
     }
     else return 0;
@@ -79,7 +77,7 @@
 //
 // Returns the cell for a given indexPath.
 //
-- (UITableViewCell *)tableViewAlarms:(UITableView *)aTableViewAlarms cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDateFormatter * dateReader = [[NSDateFormatter alloc] init];
     [dateReader setDateFormat:@"hh:mm a"];
@@ -95,7 +93,7 @@
     UISwitch *enabledSwitch;
 
 	static NSString *CellIdentifier = @"Cell";
-	UITableViewCell *cell = [aTableViewAlarms dequeueReusableCellWithIdentifier:CellIdentifier];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil)
 	{
 		//

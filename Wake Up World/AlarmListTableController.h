@@ -14,10 +14,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlarmListTableController : UIViewController
+@interface AlarmListTableController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-	UITableView *tableView;
-	UIImageView *imageView;
+//	UITableView *tableView;
+//	UIImageView *imageView;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableViewAlarms;
