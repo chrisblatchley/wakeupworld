@@ -18,7 +18,6 @@
 @property(nonatomic) BOOL alarmGoingOff;
 @property (strong, nonatomic) IBOutlet UIView *center;
 @property (strong, nonatomic) IBOutlet UIView *home;
-@property (nonatomic, strong) IBOutlet UIDatePicker *timeToSetOff;
 @property(nonatomic,assign) int notificationID;
 @property(nonatomic,assign) int alarmIndex;
 @property(nonatomic,assign) BOOL editMode;

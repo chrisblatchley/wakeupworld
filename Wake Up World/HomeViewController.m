@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "AlarmObject.h"
+#import "AlarmLabelEditViewController.h"
+#import "AddEditAlarmViewController.h"
+#import "AlarmListTableController.h"
 
 
 @interface HomeViewController ()
@@ -24,7 +27,6 @@
 @synthesize alarmGoingOff;
 @synthesize center;
 @synthesize home;
-@synthesize timeToSetOff;
 @synthesize notificationID;
 
 
@@ -46,14 +48,6 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(myTimerAction) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
-	
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *alarmListData = [defaults objectForKey:@"AlarmListData"];
-    NSMutableArray *alarmList = [NSKeyedUnarchiver unarchiveObjectWithData:alarmListData];
-    AlarmObject * oldAlarmObject = [alarmList objectAtIndex:self.indexOfAlarmToEdit];
-    timeToSetOff.date = oldAlarmObject.timeToSetOff;
-    self.notificationID = oldAlarmObject.notificationID;
-    timeToSetOff.date = oldAlarmObject.timeToSetOff;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -63,6 +57,7 @@
     minuteLabel1.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
     hourLabel2.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
     minuteLabel2.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
+    
     
 }
 
@@ -79,17 +74,44 @@
     if ([hourLabel1.text isEqual: @"0"])
     {
         [self.hourLabel1 setHidden:YES];
+        //CGSize size = self.view.frame.size;
+        self.center.frame = CGRectMake(50.0, 0.0, 224.0, 163.0);
+
     }
     else if (![hourLabel1.text isEqual: @"0"])
     {
         [self.hourLabel1 setHidden:NO];
-        [self.home setCenter:CGPointMake(center.frame.size.width / 2, center.frame.size.height / 2)];
+        //[self.home setCenter:CGPointMake(center.frame.size.width / 2, center.frame.size.height / 2)];
     }
     hourLabel2.text = [hourMinuteSecond substringWithRange:NSMakeRange(1, 1)];
     minuteLabel1.text = [hourMinuteSecond substringWithRange:NSMakeRange(3, 1)];
     minuteLabel2.text = [hourMinuteSecond substringWithRange:NSMakeRange(4, 1)];
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    //This checks if the home view is shown because of an alarm firing
+    if(self.alarmGoingOff)
+    {
+        UIAlertView *alarmAlert = [[UIAlertView alloc] initWithTitle:@"Alarm Going Off"
+                                                             message:@"Press okay to stop"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"okay"
+                                                   otherButtonTitles:nil, nil];
+        [alarmAlert show];
+    }
+}
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        AppDelegate * myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [myAppDelegate.player stop];
+    }
+    else{
+        //do nothing
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

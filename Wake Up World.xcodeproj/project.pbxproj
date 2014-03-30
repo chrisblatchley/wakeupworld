@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75179F9E17B1B0CF003DB84C /* AddEditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75179F9B17B1B0CF003DB84C /* AddEditAlarmViewController.m */; };
+		75179F9F17B1B0CF003DB84C /* AlarmLabelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75179F9D17B1B0CF003DB84C /* AlarmLabelEditViewController.m */; };
+		75179FA217B1C6FC003DB84C /* AlarmListTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75179FA117B1C6FC003DB84C /* AlarmListTableController.m */; };
 		7554D02517A3529000FD9730 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7554D02417A3529000FD9730 /* Foundation.framework */; };
 		7554D02717A3529000FD9730 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7554D02617A3529000FD9730 /* CoreGraphics.framework */; };
 		7554D02917A3529000FD9730 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7554D02817A3529000FD9730 /* UIKit.framework */; };
@@ -26,7 +29,6 @@
 		7554D05F17A355BA00FD9730 /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7554D05C17A355BA00FD9730 /* UIImage+ColorAtPixel.m */; };
 		7554D06317A355D800FD9730 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7554D06217A355D800FD9730 /* HomeViewController.m */; };
 		7554D06817A3876500FD9730 /* AlarmStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7554D06717A3876500FD9730 /* AlarmStoryBoard.storyboard */; };
-		755FA0E917A58100002BC648 /* AlarmSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 755FA0E817A58100002BC648 /* AlarmSetViewController.m */; };
 		755FA0EC17A6F20A002BC648 /* AlarmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 755FA0EB17A6F20A002BC648 /* AlarmObject.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75179F9A17B1B0CF003DB84C /* AddEditAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditAlarmViewController.h; sourceTree = "<group>"; };
+		75179F9B17B1B0CF003DB84C /* AddEditAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditAlarmViewController.m; sourceTree = "<group>"; };
+		75179F9C17B1B0CF003DB84C /* AlarmLabelEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmLabelEditViewController.h; sourceTree = "<group>"; };
+		75179F9D17B1B0CF003DB84C /* AlarmLabelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmLabelEditViewController.m; sourceTree = "<group>"; };
+		75179FA017B1C6FC003DB84C /* AlarmListTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmListTableController.h; sourceTree = "<group>"; };
+		75179FA117B1C6FC003DB84C /* AlarmListTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmListTableController.m; sourceTree = "<group>"; };
 		7554D02117A3529000FD9730 /* Wake Up World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wake Up World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7554D02417A3529000FD9730 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7554D02617A3529000FD9730 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,8 +74,6 @@
 		7554D06117A355D800FD9730 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		7554D06217A355D800FD9730 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		7554D06717A3876500FD9730 /* AlarmStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlarmStoryBoard.storyboard; sourceTree = "<group>"; };
-		755FA0E717A58100002BC648 /* AlarmSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmSetViewController.h; sourceTree = "<group>"; };
-		755FA0E817A58100002BC648 /* AlarmSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmSetViewController.m; sourceTree = "<group>"; };
 		755FA0EA17A6F20A002BC648 /* AlarmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmObject.h; sourceTree = "<group>"; };
 		755FA0EB17A6F20A002BC648 /* AlarmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,10 +144,12 @@
 				7554D03617A3529000FD9730 /* AppDelegate.m */,
 				7554D06117A355D800FD9730 /* HomeViewController.h */,
 				7554D06217A355D800FD9730 /* HomeViewController.m */,
-				755FA0E717A58100002BC648 /* AlarmSetViewController.h */,
-				755FA0E817A58100002BC648 /* AlarmSetViewController.m */,
-				755FA0EA17A6F20A002BC648 /* AlarmObject.h */,
-				755FA0EB17A6F20A002BC648 /* AlarmObject.m */,
+				75179FA017B1C6FC003DB84C /* AlarmListTableController.h */,
+				75179FA117B1C6FC003DB84C /* AlarmListTableController.m */,
+				75179F9C17B1B0CF003DB84C /* AlarmLabelEditViewController.h */,
+				75179F9D17B1B0CF003DB84C /* AlarmLabelEditViewController.m */,
+				75179F9A17B1B0CF003DB84C /* AddEditAlarmViewController.h */,
+				75179F9B17B1B0CF003DB84C /* AddEditAlarmViewController.m */,
 				7554D03B17A3529000FD9730 /* Images.xcassets */,
 				7554D03817A3529000FD9730 /* Wake_Up_World.xcdatamodeld */,
 				7554D02D17A3529000FD9730 /* Supporting Files */,
@@ -185,6 +193,8 @@
 				7554D05B17A355BA00FD9730 /* OBShapedButton.h */,
 				7554D05C17A355BA00FD9730 /* UIImage+ColorAtPixel.m */,
 				7554D05D17A355BA00FD9730 /* UIImage+ColorAtPixel.h */,
+				755FA0EA17A6F20A002BC648 /* AlarmObject.h */,
+				755FA0EB17A6F20A002BC648 /* AlarmObject.m */,
 			);
 			name = "Shaped Button";
 			sourceTree = "<group>";
@@ -286,12 +296,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7554D05F17A355BA00FD9730 /* UIImage+ColorAtPixel.m in Sources */,
-				755FA0E917A58100002BC648 /* AlarmSetViewController.m in Sources */,
 				7554D03717A3529000FD9730 /* AppDelegate.m in Sources */,
+				75179F9F17B1B0CF003DB84C /* AlarmLabelEditViewController.m in Sources */,
+				75179F9E17B1B0CF003DB84C /* AddEditAlarmViewController.m in Sources */,
 				7554D05E17A355BA00FD9730 /* OBShapedButton.m in Sources */,
 				755FA0EC17A6F20A002BC648 /* AlarmObject.m in Sources */,
 				7554D03317A3529000FD9730 /* main.m in Sources */,
 				7554D03A17A3529000FD9730 /* Wake_Up_World.xcdatamodeld in Sources */,
+				75179FA217B1C6FC003DB84C /* AlarmListTableController.m in Sources */,
 				7554D06317A355D800FD9730 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
