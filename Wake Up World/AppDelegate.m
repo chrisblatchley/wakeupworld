@@ -29,9 +29,9 @@
     
     HomeViewController *rootViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     
-    AlarmListTableController *alarmsController = [[AlarmListTableController alloc] initWithNibName:@"AlarmListTableController" bundle:nil];
+    AlarmListTableController *alarmsController = [[AlarmListTableController alloc] init];
     
-    RESideMenu *sideMenu = [[RESideMenu alloc] initWithContentViewController:rootViewController leftMenuViewController:nil rightMenuViewController:nil];
+    RESideMenu *sideMenu = [[RESideMenu alloc] initWithContentViewController:rootViewController leftMenuViewController:nil rightMenuViewController:alarmsController];
     
     sideMenu.backgroundImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://placehold.it/1000x1000"]]];
     
