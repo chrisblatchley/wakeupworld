@@ -4,16 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmTableViewCell">
-            <connections>
-                <outlet property="backgroundView" destination="Bup-dh-U99" id="qGl-H3-oVS"/>
-                <outlet property="label" destination="vcy-3H-Y1O" id="jYs-YV-Esn"/>
-                <outlet property="time" destination="hRa-2e-X3I" id="F6H-wp-un6"/>
-                <outlet property="toggle" destination="jsG-M9-eNf" id="dam-Ws-HW5"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yb8-cm-2WZ">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yb8-cm-2WZ" customClass="AlarmTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yb8-cm-2WZ" id="Bup-dh-U99">
@@ -21,14 +14,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hh:mm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRa-2e-X3I">
-                        <rect key="frame" x="156" y="11" width="87" height="21"/>
+                        <rect key="frame" x="177" y="11" width="66" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcy-3H-Y1O">
-                        <rect key="frame" x="20" y="11" width="128" height="21"/>
+                        <rect key="frame" x="20" y="11" width="149" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,6 +34,13 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="backgroundView" destination="Bup-dh-U99" id="YNp-ZG-5V1"/>
+                <outlet property="label" destination="vcy-3H-Y1O" id="kca-Jq-Dg2"/>
+                <outlet property="time" destination="hRa-2e-X3I" id="uRR-Up-RQ2"/>
+                <outlet property="toggle" destination="jsG-M9-eNf" id="Aum-4s-tah"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

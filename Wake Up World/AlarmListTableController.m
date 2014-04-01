@@ -28,6 +28,19 @@
     self.alarms = [NSKeyedUnarchiver unarchiveObjectWithData:alarmListData];
     
     // Set up custom tableViewCells
+    self.tableView = ({
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 2) / 2.0f, self.view.frame.size.width, 54 * 2) style:UITableViewStylePlain];
+        tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
+        tableView.opaque = NO;
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        tableView.backgroundColor = [UIColor clearColor];
+        tableView.backgroundView = nil;
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        tableView.bounces = NO;
+        tableView;
+    });
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"AlarmTableViewCell" bundle:nil] forCellReuseIdentifier:@"customCell"];
 }
 
@@ -53,23 +66,13 @@
     {
         return [self.alarms count];
     }
-    else return 0;
+    else return 1;
 }
 
 - (void)tableViewAlarms:(UITableView *)tableViewAlarms didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"AlarmListToEditAlarm" sender:self];
-    
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"AlarmListToEditAlarm"])
-    {
-        AddEditAlarmViewController *controller = (AddEditAlarmViewController *)segue.destinationViewController;
-        controller.indexOfAlarmToEdit = self.tableView.indexPathForSelectedRow.row;
-        controller.editMode = YES;
-    }
-}
+
 //
 // tableView:cellForRowAtIndexPath:
 //
@@ -77,19 +80,28 @@
 //
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDateFormatter * dateReader = [[NSDateFormatter alloc] init];
-    [dateReader setDateFormat:@"hh:mm a"];
-    AlarmObject *currentAlarm = [self.alarms objectAtIndex:indexPath.row];
-    
-    NSString *label = currentAlarm.label;
-    BOOL enabled = currentAlarm.enabled;
-    NSString *date = [dateReader stringFromDate:currentAlarm.timeToSetOff];
-
-	static NSString *CellIdentifier = @"customCell";
+    static NSString *CellIdentifier = @"customCell";
     AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    cell.toggle.on = enabled;
-    cell.time.text = date;
+    if ([self.alarms count]) {
+        NSDateFormatter * dateReader = [[NSDateFormatter alloc] init];
+        [dateReader setDateFormat:@"hh:mm a"];
+        AlarmObject *currentAlarm = [self.alarms objectAtIndex:indexPath.row];
+        
+        NSString *label = currentAlarm.label;
+        BOOL enabled = currentAlarm.enabled;
+        NSString *date = [dateReader stringFromDate:currentAlarm.timeToSetOff];
+        
+        cell.label.text = label;
+        cell.toggle.on = enabled;
+        cell.time.text = date;
+    }
+    else
+    {
+        cell.label.text = @"Alarm 1";
+        cell.toggle.on = YES;
+        cell.time.text = @"9:23";
+    }
     
 	return cell;
 }
@@ -145,12 +157,6 @@
     NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:self.alarms];
     [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:@"AlarmListData"];
 }
-//
-// dealloc
-//
-// Releases instance memory.
-//
-
 
 @end
 
