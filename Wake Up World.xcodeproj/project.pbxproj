@@ -31,6 +31,13 @@
 		7554D06817A3876500FD9730 /* AlarmStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7554D06717A3876500FD9730 /* AlarmStoryBoard.storyboard */; };
 		755FA0EC17A6F20A002BC648 /* AlarmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 755FA0EB17A6F20A002BC648 /* AlarmObject.m */; };
 		837222B518E7BFFE00EEA067 /* Best_Morning_Alarm.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 837222B418E7BFFE00EEA067 /* Best_Morning_Alarm.m4r */; };
+		83CD95FF18EA387B00CAB80F /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FA18EA387B00CAB80F /* RECommonFunctions.m */; };
+		83CD960018EA387B00CAB80F /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FC18EA387B00CAB80F /* RESideMenu.m */; };
+		83CD960118EA387B00CAB80F /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FE18EA387B00CAB80F /* UIViewController+RESideMenu.m */; };
+		83CD960418EA43C000CAB80F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CD960318EA43C000CAB80F /* HomeViewController.xib */; };
+		83CD960E18EA4BD700CAB80F /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD960D18EA4BD700CAB80F /* Alarm.m */; };
+		83CD961018EA55DC00CAB80F /* AlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CD960F18EA55DC00CAB80F /* AlarmTableViewCell.xib */; };
+		83CD961318EA56CF00CAB80F /* AlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD961218EA56CF00CAB80F /* AlarmTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +85,18 @@
 		755FA0EA17A6F20A002BC648 /* AlarmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmObject.h; sourceTree = "<group>"; };
 		755FA0EB17A6F20A002BC648 /* AlarmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmObject.m; sourceTree = "<group>"; };
 		837222B418E7BFFE00EEA067 /* Best_Morning_Alarm.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Best_Morning_Alarm.m4r; sourceTree = "<group>"; };
+		83CD95F918EA387B00CAB80F /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		83CD95FA18EA387B00CAB80F /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		83CD95FB18EA387B00CAB80F /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		83CD95FC18EA387B00CAB80F /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		83CD95FD18EA387B00CAB80F /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		83CD95FE18EA387B00CAB80F /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		83CD960318EA43C000CAB80F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		83CD960C18EA4BD700CAB80F /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
+		83CD960D18EA4BD700CAB80F /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		83CD960F18EA55DC00CAB80F /* AlarmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmTableViewCell.xib; sourceTree = "<group>"; };
+		83CD961118EA56CF00CAB80F /* AlarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmTableViewCell.h; sourceTree = "<group>"; };
+		83CD961218EA56CF00CAB80F /* AlarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,18 +159,16 @@
 		7554D02C17A3529000FD9730 /* Wake Up World */ = {
 			isa = PBXGroup;
 			children = (
-				7554D06717A3876500FD9730 /* AlarmStoryBoard.storyboard */,
 				7554D06017A355C000FD9730 /* Shaped Button */,
+				83CD960B18EA496E00CAB80F /* Alarm */,
+				83CD960218EA388300CAB80F /* RESideMenu */,
+				7554D06717A3876500FD9730 /* AlarmStoryBoard.storyboard */,
 				7554D03517A3529000FD9730 /* AppDelegate.h */,
 				7554D03617A3529000FD9730 /* AppDelegate.m */,
-				7554D06117A355D800FD9730 /* HomeViewController.h */,
-				7554D06217A355D800FD9730 /* HomeViewController.m */,
-				75179FA017B1C6FC003DB84C /* AlarmListTableController.h */,
-				75179FA117B1C6FC003DB84C /* AlarmListTableController.m */,
-				75179F9C17B1B0CF003DB84C /* AlarmLabelEditViewController.h */,
-				75179F9D17B1B0CF003DB84C /* AlarmLabelEditViewController.m */,
-				75179F9A17B1B0CF003DB84C /* AddEditAlarmViewController.h */,
-				75179F9B17B1B0CF003DB84C /* AddEditAlarmViewController.m */,
+				83CD960518EA43DC00CAB80F /* HomeViewController */,
+				83CD960818EA450F00CAB80F /* AlarmListTableController */,
+				83CD960918EA494F00CAB80F /* AlarmLabelEditViewController */,
+				83CD960A18EA495D00CAB80F /* AddEditAlarmViewController */,
 				7554D03B17A3529000FD9730 /* Images.xcassets */,
 				7554D03817A3529000FD9730 /* Wake_Up_World.xcdatamodeld */,
 				7554D02D17A3529000FD9730 /* Supporting Files */,
@@ -196,10 +213,80 @@
 				7554D05B17A355BA00FD9730 /* OBShapedButton.h */,
 				7554D05C17A355BA00FD9730 /* UIImage+ColorAtPixel.m */,
 				7554D05D17A355BA00FD9730 /* UIImage+ColorAtPixel.h */,
+			);
+			name = "Shaped Button";
+			sourceTree = "<group>";
+		};
+		83CD960218EA388300CAB80F /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				83CD95F918EA387B00CAB80F /* RECommonFunctions.h */,
+				83CD95FA18EA387B00CAB80F /* RECommonFunctions.m */,
+				83CD95FB18EA387B00CAB80F /* RESideMenu.h */,
+				83CD95FC18EA387B00CAB80F /* RESideMenu.m */,
+				83CD95FD18EA387B00CAB80F /* UIViewController+RESideMenu.h */,
+				83CD95FE18EA387B00CAB80F /* UIViewController+RESideMenu.m */,
+			);
+			name = RESideMenu;
+			sourceTree = "<group>";
+		};
+		83CD960518EA43DC00CAB80F /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7554D06117A355D800FD9730 /* HomeViewController.h */,
+				7554D06217A355D800FD9730 /* HomeViewController.m */,
+				83CD960318EA43C000CAB80F /* HomeViewController.xib */,
+			);
+			name = HomeViewController;
+			sourceTree = "<group>";
+		};
+		83CD960818EA450F00CAB80F /* AlarmListTableController */ = {
+			isa = PBXGroup;
+			children = (
+				75179FA017B1C6FC003DB84C /* AlarmListTableController.h */,
+				75179FA117B1C6FC003DB84C /* AlarmListTableController.m */,
+				83CD961418EA56D900CAB80F /* AlarmTableViewCell */,
+			);
+			name = AlarmListTableController;
+			sourceTree = "<group>";
+		};
+		83CD960918EA494F00CAB80F /* AlarmLabelEditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				75179F9C17B1B0CF003DB84C /* AlarmLabelEditViewController.h */,
+				75179F9D17B1B0CF003DB84C /* AlarmLabelEditViewController.m */,
+			);
+			name = AlarmLabelEditViewController;
+			sourceTree = "<group>";
+		};
+		83CD960A18EA495D00CAB80F /* AddEditAlarmViewController */ = {
+			isa = PBXGroup;
+			children = (
+				75179F9A17B1B0CF003DB84C /* AddEditAlarmViewController.h */,
+				75179F9B17B1B0CF003DB84C /* AddEditAlarmViewController.m */,
+			);
+			name = AddEditAlarmViewController;
+			sourceTree = "<group>";
+		};
+		83CD960B18EA496E00CAB80F /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				83CD960C18EA4BD700CAB80F /* Alarm.h */,
+				83CD960D18EA4BD700CAB80F /* Alarm.m */,
 				755FA0EA17A6F20A002BC648 /* AlarmObject.h */,
 				755FA0EB17A6F20A002BC648 /* AlarmObject.m */,
 			);
-			name = "Shaped Button";
+			name = Alarm;
+			sourceTree = "<group>";
+		};
+		83CD961418EA56D900CAB80F /* AlarmTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				83CD961118EA56CF00CAB80F /* AlarmTableViewCell.h */,
+				83CD961218EA56CF00CAB80F /* AlarmTableViewCell.m */,
+				83CD960F18EA55DC00CAB80F /* AlarmTableViewCell.xib */,
+			);
+			name = AlarmTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +369,8 @@
 			files = (
 				7554D03117A3529000FD9730 /* InfoPlist.strings in Resources */,
 				7554D03C17A3529000FD9730 /* Images.xcassets in Resources */,
+				83CD960418EA43C000CAB80F /* HomeViewController.xib in Resources */,
+				83CD961018EA55DC00CAB80F /* AlarmTableViewCell.xib in Resources */,
 				837222B518E7BFFE00EEA067 /* Best_Morning_Alarm.m4r in Resources */,
 				7554D06817A3876500FD9730 /* AlarmStoryBoard.storyboard in Resources */,
 			);
@@ -303,15 +392,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7554D05F17A355BA00FD9730 /* UIImage+ColorAtPixel.m in Sources */,
+				83CD960E18EA4BD700CAB80F /* Alarm.m in Sources */,
 				7554D03717A3529000FD9730 /* AppDelegate.m in Sources */,
 				75179F9F17B1B0CF003DB84C /* AlarmLabelEditViewController.m in Sources */,
 				75179F9E17B1B0CF003DB84C /* AddEditAlarmViewController.m in Sources */,
+				83CD961318EA56CF00CAB80F /* AlarmTableViewCell.m in Sources */,
+				83CD960018EA387B00CAB80F /* RESideMenu.m in Sources */,
 				7554D05E17A355BA00FD9730 /* OBShapedButton.m in Sources */,
 				755FA0EC17A6F20A002BC648 /* AlarmObject.m in Sources */,
 				7554D03317A3529000FD9730 /* main.m in Sources */,
 				7554D03A17A3529000FD9730 /* Wake_Up_World.xcdatamodeld in Sources */,
 				75179FA217B1C6FC003DB84C /* AlarmListTableController.m in Sources */,
+				83CD95FF18EA387B00CAB80F /* RECommonFunctions.m in Sources */,
 				7554D06317A355D800FD9730 /* HomeViewController.m in Sources */,
+				83CD960118EA387B00CAB80F /* UIViewController+RESideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

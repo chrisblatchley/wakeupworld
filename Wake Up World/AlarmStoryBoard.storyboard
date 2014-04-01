@@ -348,7 +348,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YwW-a4-jNc"/>
         <segue reference="NAU-gh-PpO"/>
+        <segue reference="YwW-a4-jNc"/>
     </inferredMetricsTieBreakers>
 </document>

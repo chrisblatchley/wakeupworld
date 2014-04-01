@@ -14,15 +14,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlarmListTableController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-{
-//	UITableView *tableView;
-//	UIImageView *imageView;
-}
+@interface AlarmListTableController : UITableViewController
 
-@property (nonatomic, strong) IBOutlet UITableView *tableViewAlarms;
-@property (nonatomic, strong) IBOutlet UIImageView *imageAlarmView;
-@property (nonatomic, strong) NSMutableArray *listOfAlarms;
+@property (nonatomic, strong) NSMutableArray *alarms;
 
 @end
 

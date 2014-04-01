@@ -16,17 +16,14 @@
 
 @interface HomeViewController ()
 
+- (void) updateTime;
+
 @end
 
 @implementation HomeViewController
-@synthesize hourLabel1;
-@synthesize hourLabel2;
-@synthesize minuteLabel1;
-@synthesize minuteLabel2;
-@synthesize colon;
+
+@synthesize time;
 @synthesize alarmGoingOff;
-@synthesize center;
-@synthesize home;
 @synthesize notificationID;
 
 
@@ -39,54 +36,30 @@
     return self;
 }
 
+- (void) updateTime
+{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"h:mm"];
+    
+    NSString *currTime = [df stringFromDate:now];
+    
+    [self.time setText:currTime];
+    
+    // Delay execution of my block for 10 seconds.
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{ [self updateTime]; });
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self myTimerAction];
-    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
-    //How often to update the clock labels
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(myTimerAction) userInfo:nil repeats:YES];
-    [runloop addTimer:timer forMode:NSRunLoopCommonModes];
-    [runloop addTimer:timer forMode:UITrackingRunLoopMode];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    colon.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
-    hourLabel1.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
-    minuteLabel1.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
-    hourLabel2.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
-    minuteLabel2.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
-    
-    
+    [self updateTime];
 }
 
--(void)myTimerAction
-{
-    NSDate *date = [NSDate date];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    [dateFormatter setDateFormat:@"hh:mm:ss"];
-    NSString *hourMinuteSecond = [dateFormatter stringFromDate:date];
-    
-    hourLabel1.text = [hourMinuteSecond substringWithRange:NSMakeRange(0, 1)];
-    if ([hourLabel1.text isEqual: @"0"])
-    {
-        [self.hourLabel1 setHidden:YES];
-        //CGSize size = self.view.frame.size;
-        self.center.frame = CGRectMake(50.0, 0.0, 224.0, 163.0);
-
-    }
-    else if (![hourLabel1.text isEqual: @"0"])
-    {
-        [self.hourLabel1 setHidden:NO];
-        //[self.home setCenter:CGPointMake(center.frame.size.width / 2, center.frame.size.height / 2)];
-    }
-    hourLabel2.text = [hourMinuteSecond substringWithRange:NSMakeRange(1, 1)];
-    minuteLabel1.text = [hourMinuteSecond substringWithRange:NSMakeRange(3, 1)];
-    minuteLabel2.text = [hourMinuteSecond substringWithRange:NSMakeRange(4, 1)];
-}
 -(void)viewDidAppear:(BOOL)animated
 {
     //This checks if the home view is shown because of an alarm firing

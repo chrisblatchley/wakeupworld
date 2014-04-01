@@ -10,21 +10,12 @@
 
 @interface HomeViewController : UIViewController<UIAlertViewDelegate>
 
-@property(strong, nonatomic) IBOutlet UILabel * hourLabel1;
-@property(strong, nonatomic) IBOutlet UILabel * hourLabel2;
-@property(strong, nonatomic) IBOutlet UILabel * minuteLabel1;
-@property(strong, nonatomic) IBOutlet UILabel * minuteLabel2;
-@property(strong, nonatomic) IBOutlet UILabel * colon;
-@property(nonatomic) BOOL alarmGoingOff;
-@property (strong, nonatomic) IBOutlet UIView *center;
-@property (strong, nonatomic) IBOutlet UIView *home;
-@property(nonatomic,assign) int notificationID;
-@property(nonatomic,assign) int alarmIndex;
-@property(nonatomic,assign) BOOL editMode;
-@property (nonatomic, strong) IBOutlet UINavigationItem *navItem;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
+@property (strong, nonatomic) IBOutlet UILabel * time;
 
-
-
-
+@property (nonatomic) BOOL alarmGoingOff;
+@property (nonatomic,assign) int notificationID;
+@property (nonatomic,assign) int alarmIndex;
+@property (nonatomic,assign) BOOL editMode;
 
 @end

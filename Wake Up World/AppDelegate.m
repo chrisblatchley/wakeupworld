@@ -8,12 +8,15 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "AlarmListTableController.h"
+#import "RESideMenu.h"
 
 @implementation AppDelegate
 @synthesize player;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -22,15 +25,23 @@
     UILocalNotification *localNotif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    HomeViewController *rootViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    
+    AlarmListTableController *alarmsController = [[AlarmListTableController alloc] initWithNibName:@"AlarmListTableController" bundle:nil];
+    
+    RESideMenu *sideMenu = [[RESideMenu alloc] initWithContentViewController:rootViewController leftMenuViewController:nil rightMenuViewController:nil];
+    
+    sideMenu.backgroundImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://placehold.it/1000x1000"]]];
+    
     if (localNotif)
     {
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AlarmStoryBoard" bundle:nil];
-        HomeViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeScreen"];
         rootViewController.alarmGoingOff = YES;
-        self.window.rootViewController = rootViewController;
-        [self.window makeKeyAndVisible];
     }
+    
+    self.window.rootViewController = sideMenu;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

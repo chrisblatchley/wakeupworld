@@ -7,13 +7,12 @@
 #import "AlarmListTableController.h"
 #import "AlarmObject.h"
 #import "AddEditAlarmViewController.h"
+#import "AlarmTableViewCell.h"
 
 
 @implementation AlarmListTableController
 
-@synthesize tableViewAlarms;
-@synthesize imageAlarmView;
-@synthesize listOfAlarms;
+@synthesize alarms;
 
 //
 // viewDidLoad
@@ -22,15 +21,14 @@
 //
 - (void)viewDidLoad
 {
-
-	tableViewAlarms.separatorStyle = UITableViewCellSeparatorStyleNone;
-	tableViewAlarms.rowHeight = 70;
-	tableViewAlarms.backgroundColor = [UIColor clearColor];
-	imageAlarmView.image = [UIImage imageNamed:@"gradientBackground.png"];
-    
+    // Fetch Alarms from CoreData
+    // TODO: Actually convert storage to CoreData
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *alarmListData = [defaults objectForKey:@"AlarmListData"];
-    self.listOfAlarms = [NSKeyedUnarchiver unarchiveObjectWithData:alarmListData];
+    self.alarms = [NSKeyedUnarchiver unarchiveObjectWithData:alarmListData];
+    
+    // Set up custom tableViewCells
+    [self.tableView registerNib:[UINib nibWithNibName:@"AlarmTableViewCell" bundle:nil] forCellReuseIdentifier:@"customCell"];
 }
 
 
@@ -39,7 +37,7 @@
 //
 // Return the number of sections for the table.
 //
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableViewAlarms
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 1;
 }
@@ -51,9 +49,9 @@
 //
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(self.listOfAlarms)
+    if(self.alarms)
     {
-        return [self.listOfAlarms count];
+        return [self.alarms count];
     }
     else return 0;
 }
@@ -68,7 +66,7 @@
     if([segue.identifier isEqualToString:@"AlarmListToEditAlarm"])
     {
         AddEditAlarmViewController *controller = (AddEditAlarmViewController *)segue.destinationViewController;
-        controller.indexOfAlarmToEdit = tableViewAlarms.indexPathForSelectedRow.row;
+        controller.indexOfAlarmToEdit = self.tableView.indexPathForSelectedRow.row;
         controller.editMode = YES;
     }
 }
@@ -81,78 +79,18 @@
 {
     NSDateFormatter * dateReader = [[NSDateFormatter alloc] init];
     [dateReader setDateFormat:@"hh:mm a"];
-    AlarmObject *currentAlarm = [self.listOfAlarms objectAtIndex:indexPath.row];
+    AlarmObject *currentAlarm = [self.alarms objectAtIndex:indexPath.row];
     
     NSString *label = currentAlarm.label;
     BOOL enabled = currentAlarm.enabled;
     NSString *date = [dateReader stringFromDate:currentAlarm.timeToSetOff];
+
+	static NSString *CellIdentifier = @"customCell";
+    AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    cell.toggle.on = enabled;
+    cell.time.text = date;
     
-	UILabel *topLabel;
-	UILabel *bottomLabel;
-    UISwitch *enabledSwitch;
-
-	static NSString *CellIdentifier = @"Cell";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	if (cell == nil)
-	{
-		//
-		// Create the cell.
-		//
-		cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier];
-
-		//
-		// Create the label for the top row of text
-		//
-		topLabel =
-			[[UILabel alloc]
-				initWithFrame:
-              CGRectMake(14,5,170,40)];
-		[cell.contentView addSubview:topLabel];
-
-		//
-		// Configure the properties for the text that are the same on every row
-		//
-		topLabel.backgroundColor = [UIColor clearColor];
-		topLabel.textColor = [UIColor blackColor];
-		topLabel.highlightedTextColor = [UIColor whiteColor];
-		topLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]+2];
-
-		//
-		// Create the label for the top row of text
-		//
-		bottomLabel =
-			[[UILabel alloc]
-				initWithFrame:
-					CGRectMake(14,30,170,40)];
-		[cell.contentView addSubview:bottomLabel];
-
-		//
-		// Configure the properties for the text that are the same on every row
-		//
-		bottomLabel.backgroundColor = [UIColor clearColor];
-		bottomLabel.textColor = [UIColor blackColor];
-		bottomLabel.highlightedTextColor = [UIColor whiteColor];
-		bottomLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
-
-        
-        enabledSwitch = [[UISwitch alloc]
-                         initWithFrame:
-                         CGRectMake(200,20,170,40)];
-        enabledSwitch.tag = indexPath.row;
-        [enabledSwitch addTarget:self
-                            action:@selector(toggleAlarmEnabledSwitch:)
-                  forControlEvents:UIControlEventTouchUpInside];
-        
-		[cell.contentView addSubview:enabledSwitch];
-        
-        [enabledSwitch setOn:enabled];
-        topLabel.text = date;
-        bottomLabel.text = label;
-
-	}
-	
 	return cell;
 }
 
@@ -164,7 +102,7 @@
     {
         UIApplication *app = [UIApplication sharedApplication];
         NSArray *eventArray = [app scheduledLocalNotifications];
-        AlarmObject *currentAlarm = [self.listOfAlarms objectAtIndex:mySwitch.tag];
+        AlarmObject *currentAlarm = [self.alarms objectAtIndex:mySwitch.tag];
         currentAlarm.enabled = NO;
         for (int i=0; i<[eventArray count]; i++)
         {
@@ -183,7 +121,7 @@
     else if(mySwitch.isOn == YES)
     {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        AlarmObject *currentAlarm = [self.listOfAlarms objectAtIndex:mySwitch.tag];
+        AlarmObject *currentAlarm = [self.alarms objectAtIndex:mySwitch.tag];
         currentAlarm.enabled = YES;
         if (!localNotification)
             return;
@@ -204,7 +142,7 @@
         // Schedule the notification
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     }
-    NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:self.listOfAlarms];
+    NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:self.alarms];
     [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:@"AlarmListData"];
 }
 //
