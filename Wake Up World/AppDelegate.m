@@ -6,10 +6,13 @@
 //  Copyright (c) 2013 Alex Gordon. All rights reserved.
 //
 
+#define APP_HAS_LOADED @"appHasLoaded"
+
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "AlarmListTableController.h"
 #import "RESideMenu.h"
+#import "IFTTTJazzHandsViewController.h"
 
 @implementation AppDelegate
 @synthesize player;
@@ -42,6 +45,13 @@
     
     self.window.rootViewController = sideMenu;
     [self.window makeKeyAndVisible];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:APP_HAS_LOADED]) {
+        IFTTTJazzHandsViewController * introVC = [IFTTTJazzHandsViewController new];
+        introVC.view.backgroundColor = [[UIColor alloc] initWithRed:64.0f / 255.0f green:113.0f / 255.0f blue:125.0f / 255.0f alpha:1.0];
+        [rootViewController presentViewController:introVC animated:NO completion:nil];
+        //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:APP_HAS_LOADED];
+    }
     
     return YES;
 }

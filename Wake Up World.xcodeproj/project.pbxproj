@@ -31,6 +31,19 @@
 		7554D06817A3876500FD9730 /* AlarmStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7554D06717A3876500FD9730 /* AlarmStoryBoard.storyboard */; };
 		755FA0EC17A6F20A002BC648 /* AlarmObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 755FA0EB17A6F20A002BC648 /* AlarmObject.m */; };
 		837222B518E7BFFE00EEA067 /* Best_Morning_Alarm.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 837222B418E7BFFE00EEA067 /* Best_Morning_Alarm.m4r */; };
+		83CD4AF118F3800D0009F449 /* IFTTTJazzHandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4AF018F3800D0009F449 /* IFTTTJazzHandsViewController.m */; };
+		83CD4B6818F385C20009F449 /* IFTTTAlphaAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B5018F385C20009F449 /* IFTTTAlphaAnimation.m */; };
+		83CD4B6918F385C20009F449 /* IFTTTAngleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B5218F385C20009F449 /* IFTTTAngleAnimation.m */; };
+		83CD4B6A18F385C20009F449 /* IFTTTAnimatedScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B5418F385C20009F449 /* IFTTTAnimatedScrollViewController.m */; };
+		83CD4B6B18F385C20009F449 /* IFTTTAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B5618F385C20009F449 /* IFTTTAnimation.m */; };
+		83CD4B6C18F385C20009F449 /* IFTTTAnimationFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B5818F385C20009F449 /* IFTTTAnimationFrame.m */; };
+		83CD4B6D18F385C20009F449 /* IFTTTAnimationKeyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B5A18F385C20009F449 /* IFTTTAnimationKeyFrame.m */; };
+		83CD4B6E18F385C20009F449 /* IFTTTAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B5C18F385C20009F449 /* IFTTTAnimator.m */; };
+		83CD4B6F18F385C20009F449 /* IFTTTColorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B5E18F385C20009F449 /* IFTTTColorAnimation.m */; };
+		83CD4B7018F385C20009F449 /* IFTTTFrameAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B6018F385C20009F449 /* IFTTTFrameAnimation.m */; };
+		83CD4B7118F385C20009F449 /* IFTTTHideAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B6218F385C20009F449 /* IFTTTHideAnimation.m */; };
+		83CD4B7218F385C20009F449 /* IFTTTScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B6518F385C20009F449 /* IFTTTScaleAnimation.m */; };
+		83CD4B7318F385C20009F449 /* IFTTTTransform3DAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD4B6718F385C20009F449 /* IFTTTTransform3DAnimation.m */; };
 		83CD95FF18EA387B00CAB80F /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FA18EA387B00CAB80F /* RECommonFunctions.m */; };
 		83CD960018EA387B00CAB80F /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FC18EA387B00CAB80F /* RESideMenu.m */; };
 		83CD960118EA387B00CAB80F /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FE18EA387B00CAB80F /* UIViewController+RESideMenu.m */; };
@@ -85,6 +98,33 @@
 		755FA0EA17A6F20A002BC648 /* AlarmObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmObject.h; sourceTree = "<group>"; };
 		755FA0EB17A6F20A002BC648 /* AlarmObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmObject.m; sourceTree = "<group>"; };
 		837222B418E7BFFE00EEA067 /* Best_Morning_Alarm.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Best_Morning_Alarm.m4r; sourceTree = "<group>"; };
+		83CD4AEF18F3800D0009F449 /* IFTTTJazzHandsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTJazzHandsViewController.h; sourceTree = "<group>"; };
+		83CD4AF018F3800D0009F449 /* IFTTTJazzHandsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTJazzHandsViewController.m; sourceTree = "<group>"; };
+		83CD4B4F18F385C20009F449 /* IFTTTAlphaAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTAlphaAnimation.h; sourceTree = "<group>"; };
+		83CD4B5018F385C20009F449 /* IFTTTAlphaAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTAlphaAnimation.m; sourceTree = "<group>"; };
+		83CD4B5118F385C20009F449 /* IFTTTAngleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTAngleAnimation.h; sourceTree = "<group>"; };
+		83CD4B5218F385C20009F449 /* IFTTTAngleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTAngleAnimation.m; sourceTree = "<group>"; };
+		83CD4B5318F385C20009F449 /* IFTTTAnimatedScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTAnimatedScrollViewController.h; sourceTree = "<group>"; };
+		83CD4B5418F385C20009F449 /* IFTTTAnimatedScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTAnimatedScrollViewController.m; sourceTree = "<group>"; };
+		83CD4B5518F385C20009F449 /* IFTTTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTAnimation.h; sourceTree = "<group>"; };
+		83CD4B5618F385C20009F449 /* IFTTTAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTAnimation.m; sourceTree = "<group>"; };
+		83CD4B5718F385C20009F449 /* IFTTTAnimationFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTAnimationFrame.h; sourceTree = "<group>"; };
+		83CD4B5818F385C20009F449 /* IFTTTAnimationFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTAnimationFrame.m; sourceTree = "<group>"; };
+		83CD4B5918F385C20009F449 /* IFTTTAnimationKeyFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTAnimationKeyFrame.h; sourceTree = "<group>"; };
+		83CD4B5A18F385C20009F449 /* IFTTTAnimationKeyFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTAnimationKeyFrame.m; sourceTree = "<group>"; };
+		83CD4B5B18F385C20009F449 /* IFTTTAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTAnimator.h; sourceTree = "<group>"; };
+		83CD4B5C18F385C20009F449 /* IFTTTAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTAnimator.m; sourceTree = "<group>"; };
+		83CD4B5D18F385C20009F449 /* IFTTTColorAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTColorAnimation.h; sourceTree = "<group>"; };
+		83CD4B5E18F385C20009F449 /* IFTTTColorAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTColorAnimation.m; sourceTree = "<group>"; };
+		83CD4B5F18F385C20009F449 /* IFTTTFrameAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTFrameAnimation.h; sourceTree = "<group>"; };
+		83CD4B6018F385C20009F449 /* IFTTTFrameAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTFrameAnimation.m; sourceTree = "<group>"; };
+		83CD4B6118F385C20009F449 /* IFTTTHideAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTHideAnimation.h; sourceTree = "<group>"; };
+		83CD4B6218F385C20009F449 /* IFTTTHideAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTHideAnimation.m; sourceTree = "<group>"; };
+		83CD4B6318F385C20009F449 /* IFTTTJazzHands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTJazzHands.h; sourceTree = "<group>"; };
+		83CD4B6418F385C20009F449 /* IFTTTScaleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTScaleAnimation.h; sourceTree = "<group>"; };
+		83CD4B6518F385C20009F449 /* IFTTTScaleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTScaleAnimation.m; sourceTree = "<group>"; };
+		83CD4B6618F385C20009F449 /* IFTTTTransform3DAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTTransform3DAnimation.h; sourceTree = "<group>"; };
+		83CD4B6718F385C20009F449 /* IFTTTTransform3DAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTTransform3DAnimation.m; sourceTree = "<group>"; };
 		83CD95F918EA387B00CAB80F /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
 		83CD95FA18EA387B00CAB80F /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
 		83CD95FB18EA387B00CAB80F /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
@@ -159,6 +199,8 @@
 		7554D02C17A3529000FD9730 /* Wake Up World */ = {
 			isa = PBXGroup;
 			children = (
+				83CD4B4E18F385A70009F449 /* JazzHands */,
+				83CD4AF218F380130009F449 /* JazzHandsViewController */,
 				7554D06017A355C000FD9730 /* Shaped Button */,
 				83CD960B18EA496E00CAB80F /* Alarm */,
 				83CD960218EA388300CAB80F /* RESideMenu */,
@@ -215,6 +257,47 @@
 				7554D05D17A355BA00FD9730 /* UIImage+ColorAtPixel.h */,
 			);
 			name = "Shaped Button";
+			sourceTree = "<group>";
+		};
+		83CD4AF218F380130009F449 /* JazzHandsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				83CD4AEF18F3800D0009F449 /* IFTTTJazzHandsViewController.h */,
+				83CD4AF018F3800D0009F449 /* IFTTTJazzHandsViewController.m */,
+			);
+			name = JazzHandsViewController;
+			sourceTree = "<group>";
+		};
+		83CD4B4E18F385A70009F449 /* JazzHands */ = {
+			isa = PBXGroup;
+			children = (
+				83CD4B4F18F385C20009F449 /* IFTTTAlphaAnimation.h */,
+				83CD4B5018F385C20009F449 /* IFTTTAlphaAnimation.m */,
+				83CD4B5118F385C20009F449 /* IFTTTAngleAnimation.h */,
+				83CD4B5218F385C20009F449 /* IFTTTAngleAnimation.m */,
+				83CD4B5318F385C20009F449 /* IFTTTAnimatedScrollViewController.h */,
+				83CD4B5418F385C20009F449 /* IFTTTAnimatedScrollViewController.m */,
+				83CD4B5518F385C20009F449 /* IFTTTAnimation.h */,
+				83CD4B5618F385C20009F449 /* IFTTTAnimation.m */,
+				83CD4B5718F385C20009F449 /* IFTTTAnimationFrame.h */,
+				83CD4B5818F385C20009F449 /* IFTTTAnimationFrame.m */,
+				83CD4B5918F385C20009F449 /* IFTTTAnimationKeyFrame.h */,
+				83CD4B5A18F385C20009F449 /* IFTTTAnimationKeyFrame.m */,
+				83CD4B5B18F385C20009F449 /* IFTTTAnimator.h */,
+				83CD4B5C18F385C20009F449 /* IFTTTAnimator.m */,
+				83CD4B5D18F385C20009F449 /* IFTTTColorAnimation.h */,
+				83CD4B5E18F385C20009F449 /* IFTTTColorAnimation.m */,
+				83CD4B5F18F385C20009F449 /* IFTTTFrameAnimation.h */,
+				83CD4B6018F385C20009F449 /* IFTTTFrameAnimation.m */,
+				83CD4B6118F385C20009F449 /* IFTTTHideAnimation.h */,
+				83CD4B6218F385C20009F449 /* IFTTTHideAnimation.m */,
+				83CD4B6318F385C20009F449 /* IFTTTJazzHands.h */,
+				83CD4B6418F385C20009F449 /* IFTTTScaleAnimation.h */,
+				83CD4B6518F385C20009F449 /* IFTTTScaleAnimation.m */,
+				83CD4B6618F385C20009F449 /* IFTTTTransform3DAnimation.h */,
+				83CD4B6718F385C20009F449 /* IFTTTTransform3DAnimation.m */,
+			);
+			name = JazzHands;
 			sourceTree = "<group>";
 		};
 		83CD960218EA388300CAB80F /* RESideMenu */ = {
@@ -340,7 +423,7 @@
 						DevelopmentTeam = JXQU3BCQ6N;
 					};
 					7554D04017A3529000FD9730 = {
-						TestTargetID = 7554D02017A3529000FD9730 /* Wake Up World */;
+						TestTargetID = 7554D02017A3529000FD9730;
 					};
 				};
 			};
@@ -391,17 +474,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83CD4AF118F3800D0009F449 /* IFTTTJazzHandsViewController.m in Sources */,
 				7554D05F17A355BA00FD9730 /* UIImage+ColorAtPixel.m in Sources */,
+				83CD4B6F18F385C20009F449 /* IFTTTColorAnimation.m in Sources */,
+				83CD4B6918F385C20009F449 /* IFTTTAngleAnimation.m in Sources */,
 				83CD960E18EA4BD700CAB80F /* Alarm.m in Sources */,
+				83CD4B7018F385C20009F449 /* IFTTTFrameAnimation.m in Sources */,
 				7554D03717A3529000FD9730 /* AppDelegate.m in Sources */,
+				83CD4B6C18F385C20009F449 /* IFTTTAnimationFrame.m in Sources */,
+				83CD4B6A18F385C20009F449 /* IFTTTAnimatedScrollViewController.m in Sources */,
+				83CD4B6B18F385C20009F449 /* IFTTTAnimation.m in Sources */,
+				83CD4B6D18F385C20009F449 /* IFTTTAnimationKeyFrame.m in Sources */,
 				75179F9F17B1B0CF003DB84C /* AlarmLabelEditViewController.m in Sources */,
 				75179F9E17B1B0CF003DB84C /* AddEditAlarmViewController.m in Sources */,
 				83CD961318EA56CF00CAB80F /* AlarmTableViewCell.m in Sources */,
+				83CD4B7118F385C20009F449 /* IFTTTHideAnimation.m in Sources */,
 				83CD960018EA387B00CAB80F /* RESideMenu.m in Sources */,
+				83CD4B7318F385C20009F449 /* IFTTTTransform3DAnimation.m in Sources */,
+				83CD4B7218F385C20009F449 /* IFTTTScaleAnimation.m in Sources */,
 				7554D05E17A355BA00FD9730 /* OBShapedButton.m in Sources */,
 				755FA0EC17A6F20A002BC648 /* AlarmObject.m in Sources */,
 				7554D03317A3529000FD9730 /* main.m in Sources */,
 				7554D03A17A3529000FD9730 /* Wake_Up_World.xcdatamodeld in Sources */,
+				83CD4B6E18F385C20009F449 /* IFTTTAnimator.m in Sources */,
+				83CD4B6818F385C20009F449 /* IFTTTAlphaAnimation.m in Sources */,
 				75179FA217B1C6FC003DB84C /* AlarmListTableController.m in Sources */,
 				83CD95FF18EA387B00CAB80F /* RECommonFunctions.m in Sources */,
 				7554D06317A355D800FD9730 /* HomeViewController.m in Sources */,
