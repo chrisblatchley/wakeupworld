@@ -50,7 +50,7 @@
         IFTTTJazzHandsViewController * introVC = [IFTTTJazzHandsViewController new];
         introVC.view.backgroundColor = [[UIColor alloc] initWithRed:64.0f / 255.0f green:113.0f / 255.0f blue:125.0f / 255.0f alpha:1.0];
         [rootViewController presentViewController:introVC animated:NO completion:nil];
-        //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:APP_HAS_LOADED];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:APP_HAS_LOADED];
     }
     
     return YES;

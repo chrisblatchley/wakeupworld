@@ -9,6 +9,14 @@
 #import "AddEditAlarmViewController.h"
 #import "AlarmTableViewCell.h"
 
+#define CUSTOM_CELL @"customCell"
+
+@interface AlarmListTableController ()
+
+@property (strong, readwrite, nonatomic) UITableView *tableView;
+
+@end
+
 
 @implementation AlarmListTableController
 
@@ -27,13 +35,15 @@
     NSData *alarmListData = [defaults objectForKey:@"AlarmListData"];
     self.alarms = [NSKeyedUnarchiver unarchiveObjectWithData:alarmListData];
     
-    // Set up custom tableViewCells
+    // Setup tableView
+    [self.tableView registerNib:[UINib nibWithNibName:@"AlarmTableViewCell" bundle:nil] forCellReuseIdentifier:CUSTOM_CELL];
+    
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 2) / 2.0f, self.view.frame.size.width, 54 * 2) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
-        tableView.opaque = NO;
-        tableView.dataSource = self;
         tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.opaque = NO;
         tableView.backgroundColor = [UIColor clearColor];
         tableView.backgroundView = nil;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -41,7 +51,7 @@
         tableView;
     });
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"AlarmTableViewCell" bundle:nil] forCellReuseIdentifier:@"customCell"];
+    [self.view addSubview:self.tableView];
 }
 
 
@@ -69,8 +79,9 @@
     else return 1;
 }
 
-- (void)tableViewAlarms:(UITableView *)tableViewAlarms didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //
@@ -80,25 +91,28 @@
 //
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"customCell";
+    static NSString *CellIdentifier = CUSTOM_CELL;
     AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        // Load the top-level objects from the custom cell XIB.
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AlarmTableViewCell" owner:self options:nil];
+        // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+        cell = [topLevelObjects objectAtIndex:0];
+    }
     
     if ([self.alarms count]) {
         NSDateFormatter * dateReader = [[NSDateFormatter alloc] init];
         [dateReader setDateFormat:@"hh:mm a"];
         AlarmObject *currentAlarm = [self.alarms objectAtIndex:indexPath.row];
         
-        NSString *label = currentAlarm.label;
         BOOL enabled = currentAlarm.enabled;
         NSString *date = [dateReader stringFromDate:currentAlarm.timeToSetOff];
         
-        cell.label.text = label;
         cell.toggle.on = enabled;
         cell.time.text = date;
     }
     else
     {
-        cell.label.text = @"Alarm 1";
         cell.toggle.on = YES;
         cell.time.text = @"9:23";
     }

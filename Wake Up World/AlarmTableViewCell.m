@@ -10,7 +10,6 @@
 
 @implementation AlarmTableViewCell
 
-@synthesize label;
 @synthesize time;
 @synthesize toggle;
 

@@ -14,7 +14,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlarmListTableController : UITableViewController
+@interface AlarmListTableController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *alarms;
 

@@ -10,7 +10,6 @@
 
 @interface AlarmTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *label;
 @property (nonatomic, strong) IBOutlet UILabel * time;
 @property (nonatomic, strong) IBOutlet UISwitch * toggle;
 
