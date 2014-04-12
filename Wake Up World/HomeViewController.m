@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "AlarmObject.h"
-#import "AlarmLabelEditViewController.h"
+#import "AlarmEditViewController.h"
 #import "AddEditAlarmViewController.h"
 #import "AlarmListTableController.h"
 

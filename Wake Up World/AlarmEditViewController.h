@@ -6,18 +6,18 @@
 
 #import <UIKit/UIKit.h>
 
-@class AlarmLabelEditViewController;
+@class AlarmEditViewController;
 
-@protocol AlarmLabelEditViewControllerDelegate <NSObject>
+@protocol AlarmEditViewControllerDelegate <NSObject>
 - (void)updateLabelText:(NSString*)newLabel;
 @end
 
-@interface AlarmLabelEditViewController : UIViewController<UITextFieldDelegate>{
+@interface AlarmEditViewController : UIViewController<UITextFieldDelegate> {
     UITextField * labelField;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableAlarmView;
 @property (nonatomic, strong) NSString * label;
-@property(unsafe_unretained) id <AlarmLabelEditViewControllerDelegate> delegate;
+@property(unsafe_unretained) id <AlarmEditViewControllerDelegate> delegate;
 
 @end

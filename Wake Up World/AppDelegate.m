@@ -36,7 +36,7 @@
     
     RESideMenu *sideMenu = [[RESideMenu alloc] initWithContentViewController:rootViewController leftMenuViewController:nil rightMenuViewController:alarmsController];
     
-    sideMenu.backgroundImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://placehold.it/1000x1000"]]];
+    sideMenu.backgroundImage = [UIImage imageNamed:@"wuw.png"];
     
     if (localNotif)
     {

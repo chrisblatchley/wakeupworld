@@ -6,10 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AlarmLabelEditViewController.h"
-
-
-@interface AddEditAlarmViewController : UIViewController <AlarmLabelEditViewControllerDelegate,UIAlertViewDelegate>
+@interface AddEditAlarmViewController : UIViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UIDatePicker *timeToSetOff;
@@ -19,6 +16,7 @@
 @property(nonatomic,assign) BOOL editMode;
 @property(nonatomic,assign) int notificationID;
 
-
+- (IBAction) cancel:(id)sender;
+- (IBAction) saveAlarm:(id)sender;
 
 @end

@@ -22,6 +22,7 @@
 @synthesize label;
 @synthesize navItem;
 @synthesize notificationID;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,10 +50,9 @@
         self.label = oldAlarmObject.label;
         timeToSetOff.date = oldAlarmObject.timeToSetOff;
         self.notificationID = oldAlarmObject.notificationID;
-        
     }
-
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(self.editMode)
@@ -105,30 +105,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0)
+    if(indexPath.section == 0 && indexPath.row == 0)
     {
-        if(indexPath.row == 0)
-        {
-            UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"AlarmStoryBoard" bundle:nil];
-            
-            AlarmLabelEditViewController *labelEditController = [mystoryboard instantiateViewControllerWithIdentifier:@"LabelEditView"];
-            
-            labelEditController.delegate = self;
-            labelEditController.label = label;
-            [self presentViewController:labelEditController animated:YES completion:nil];
-        }        
-    }
-    else if(indexPath.section == 1)
-    {
-        if(indexPath.row == 0)
-        {
-            UIAlertView *deleteAlarmAlert = [[UIAlertView alloc] initWithTitle:@"Delete Alarm"
-                                                                  message:@"Are you sure you want to delete this alarm?"
-                                                                 delegate:self
-                                                        cancelButtonTitle:@"Yes"
-                                                        otherButtonTitles:@"Cancel", nil];
-            [deleteAlarmAlert show];
-        }
+        UIAlertView *deleteAlarmAlert = [[UIAlertView alloc] initWithTitle:@"Delete Alarm"
+                                                              message:@"Are you sure you want to delete this alarm?"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Yes"
+                                                    otherButtonTitles:@"Cancel", nil];
+        [deleteAlarmAlert show];
     }
 }
 
@@ -174,7 +158,13 @@
         //do nothing
     }
 }
--(IBAction)saveAlarm:(id)sender
+
+- (IBAction) cancel:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction) saveAlarm:(id)sender
 {
     AlarmObject * newAlarmObject;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -189,7 +179,6 @@
     if(self.editMode)//Editing Alarm that already exists
     {
         newAlarmObject = [alarmList objectAtIndex:self.indexOfAlarmToEdit];
-        
         [self CancelExistingNotification];
     }
     else//Adding a new alarm
@@ -213,9 +202,7 @@
     NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:alarmList];
     [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:@"AlarmListData"];
     
-   
-    
-    [self performSegueWithIdentifier: @"AlarmListSegue" sender: self];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)scheduleLocalNotificationWithDate:(NSDate *)fireDate

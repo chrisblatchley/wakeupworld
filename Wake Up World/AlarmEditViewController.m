@@ -4,13 +4,13 @@
 //
 
 
-#import "AlarmLabelEditViewController.h"
+#import "AlarmEditViewController.h"
 
-@interface AlarmLabelEditViewController ()
+@interface AlarmEditViewController ()
 
 @end
 
-@implementation AlarmLabelEditViewController
+@implementation AlarmEditViewController
 
 @synthesize delegate;
 @synthesize label;

@@ -13,10 +13,14 @@
 
 @interface AlarmListTableController ()
 
+@property (strong, readwrite, nonatomic) UIButton *addAlarmButton;
 @property (strong, readwrite, nonatomic) UITableView *tableView;
 
-@end
+- (void) addAlarm;
+- (void) testToggle:(id)sender;
+- (void)toggleAlarmEnabledSwitch:(id)sender;
 
+@end
 
 @implementation AlarmListTableController
 
@@ -47,11 +51,20 @@
         tableView.backgroundColor = [UIColor clearColor];
         tableView.backgroundView = nil;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        tableView.bounces = NO;
+        tableView.bounces = YES;
         tableView;
     });
     
+    self.addAlarmButton = ({
+        UIButton *b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        b.frame = CGRectMake(self.view.frame.size.width - 50, self.tableView.frame.origin.y - 30, 50, 30);
+        [b setTitle:@"New" forState:UIControlStateNormal];
+        [b addTarget:self action:@selector(addAlarm) forControlEvents:UIControlEventTouchUpInside];
+        b;
+    });
+    
     [self.view addSubview:self.tableView];
+    [self.view addSubview:self.addAlarmButton];
 }
 
 
@@ -109,15 +122,31 @@
         NSString *date = [dateReader stringFromDate:currentAlarm.timeToSetOff];
         
         cell.toggle.on = enabled;
+        [cell.toggle addTarget:self action:@selector(toggleAlarmEnabledSwitch:) forControlEvents:UIControlEventValueChanged];
         cell.time.text = date;
     }
     else
     {
         cell.toggle.on = YES;
         cell.time.text = @"9:23";
+        [cell.toggle addTarget:self action:@selector(testToggle:) forControlEvents:UIControlEventValueChanged];
     }
     
 	return cell;
+}
+
+- (void) addAlarm
+{
+    NSLog(@"Adding alarm!");
+    AddEditAlarmViewController *addAlarmVC = [[AddEditAlarmViewController alloc] initWithNibName:@"AddEditAlarmViewController" bundle:nil];
+    [addAlarmVC setEditMode:NO];
+    [self presentViewController:addAlarmVC animated:YES completion:nil];
+}
+
+- (void) testToggle:(id)sender
+{
+    UISwitch *sw = (UISwitch *)sender;
+    NSLog(@"Alarm set to %@", sw.isOn ? @"on" : @"off");
 }
 
 -(void)toggleAlarmEnabledSwitch:(id)sender
