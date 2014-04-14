@@ -22,6 +22,7 @@
 @synthesize label;
 @synthesize navItem;
 @synthesize notificationID;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -201,6 +202,8 @@
     }
     NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:alarmList];
     [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:@"AlarmListData"];
+    
+    [self.delegate didFinishEditing];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

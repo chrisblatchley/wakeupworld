@@ -13,8 +13,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddEditAlarmViewController.h"
 
-@interface AlarmListTableController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AlarmListTableController : UIViewController <UITableViewDataSource, UITableViewDelegate, AddEditAlarmDelegate>
 
 @property (nonatomic, strong) NSMutableArray *alarms;
 
