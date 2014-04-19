@@ -415,7 +415,7 @@
 				ORGANIZATIONNAME = "Alex Gordon";
 				TargetAttributes = {
 					7554D02017A3529000FD9730 = {
-						DevelopmentTeam = JXQU3BCQ6N;
+						DevelopmentTeam = 48FW2LA7XX;
 					};
 					7554D04017A3529000FD9730 = {
 						TestTargetID = 7554D02017A3529000FD9730;
@@ -611,11 +611,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wake Up World/Wake Up World-Prefix.pch";
 				INFOPLIST_FILE = "Wake Up World/Wake Up World-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -626,11 +628,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wake Up World/Wake Up World-Prefix.pch";
 				INFOPLIST_FILE = "Wake Up World/Wake Up World-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
