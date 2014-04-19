@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "WuW-welcome-screen-no5_0003_So-what-are-you-waiting-for_---Start-setting-alarms,-and-lets-W.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "WuW-welcome-screen-no5_0003_So-what-are-you-waiting-for_---Start-setting-alarms,-and-lets-W-1.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
