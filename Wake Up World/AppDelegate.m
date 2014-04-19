@@ -14,6 +14,13 @@
 #import "RESideMenu.h"
 #import "IFTTTJazzHandsViewController.h"
 
+@interface AppDelegate ()
+{
+    HomeViewController *rootViewController;
+}
+
+@end
+
 @implementation AppDelegate
 @synthesize player;
 @synthesize managedObjectContext = _managedObjectContext;
@@ -30,14 +37,14 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    HomeViewController *rootViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    rootViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     
     AlarmListTableController *alarmsController = [[AlarmListTableController alloc] init];
     
     RESideMenu *sideMenu = [[RESideMenu alloc] initWithContentViewController:rootViewController leftMenuViewController:nil rightMenuViewController:alarmsController];
     
     //sideMenu.backgroundImage = [UIImage imageNamed:@"wuw.png"];
-    sideMenu.backgroundImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://placehold.it/940x940"]]];
+    sideMenu.backgroundImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://placehold.it/940x640"]]];
     sideMenu.bouncesHorizontally = NO;
     
     if (localNotif)
@@ -64,12 +71,7 @@
     [self.player prepareToPlay];
     [self.player play];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AlarmStoryBoard" bundle:nil];
-    HomeViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeScreen"];
-    rootViewController.alarmGoingOff = YES;
-    self.window.rootViewController = rootViewController;
-    [self.window makeKeyAndVisible];
+    [rootViewController toggleSnoozeButtonsWithAnimation:YES];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

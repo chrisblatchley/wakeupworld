@@ -47,8 +47,6 @@
 		83CD960018EA387B00CAB80F /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FC18EA387B00CAB80F /* RESideMenu.m */; };
 		83CD960118EA387B00CAB80F /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FE18EA387B00CAB80F /* UIViewController+RESideMenu.m */; };
 		83CD960418EA43C000CAB80F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CD960318EA43C000CAB80F /* HomeViewController.xib */; };
-		83CD961018EA55DC00CAB80F /* AlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CD960F18EA55DC00CAB80F /* AlarmTableViewCell.xib */; };
-		83CD961318EA56CF00CAB80F /* AlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD961218EA56CF00CAB80F /* AlarmTableViewCell.m */; };
 		83EEC27518F8D3080026BF66 /* AddEditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EEC27418F8D3080026BF66 /* AddEditAlarmViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -130,9 +128,6 @@
 		83CD95FD18EA387B00CAB80F /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
 		83CD95FE18EA387B00CAB80F /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		83CD960318EA43C000CAB80F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		83CD960F18EA55DC00CAB80F /* AlarmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmTableViewCell.xib; sourceTree = "<group>"; };
-		83CD961118EA56CF00CAB80F /* AlarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmTableViewCell.h; sourceTree = "<group>"; };
-		83CD961218EA56CF00CAB80F /* AlarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmTableViewCell.m; sourceTree = "<group>"; };
 		83EEC27418F8D3080026BF66 /* AddEditAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEditAlarmViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,7 +337,6 @@
 			children = (
 				75179FA017B1C6FC003DB84C /* AlarmListTableController.h */,
 				75179FA117B1C6FC003DB84C /* AlarmListTableController.m */,
-				83CD961418EA56D900CAB80F /* AlarmTableViewCell */,
 			);
 			name = AlarmListTableController;
 			sourceTree = "<group>";
@@ -355,16 +349,6 @@
 				83EEC27418F8D3080026BF66 /* AddEditAlarmViewController.xib */,
 			);
 			name = AddEditAlarmViewController;
-			sourceTree = "<group>";
-		};
-		83CD961418EA56D900CAB80F /* AlarmTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				83CD961118EA56CF00CAB80F /* AlarmTableViewCell.h */,
-				83CD961218EA56CF00CAB80F /* AlarmTableViewCell.m */,
-				83CD960F18EA55DC00CAB80F /* AlarmTableViewCell.xib */,
-			);
-			name = AlarmTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,7 +433,6 @@
 				83EEC27518F8D3080026BF66 /* AddEditAlarmViewController.xib in Resources */,
 				7554D03C17A3529000FD9730 /* Images.xcassets in Resources */,
 				83CD960418EA43C000CAB80F /* HomeViewController.xib in Resources */,
-				83CD961018EA55DC00CAB80F /* AlarmTableViewCell.xib in Resources */,
 				837222B518E7BFFE00EEA067 /* Best_Morning_Alarm.m4r in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,7 +463,6 @@
 				83CD4B6B18F385C20009F449 /* IFTTTAnimation.m in Sources */,
 				83CD4B6D18F385C20009F449 /* IFTTTAnimationKeyFrame.m in Sources */,
 				75179F9E17B1B0CF003DB84C /* AddEditAlarmViewController.m in Sources */,
-				83CD961318EA56CF00CAB80F /* AlarmTableViewCell.m in Sources */,
 				83CD4B7118F385C20009F449 /* IFTTTHideAnimation.m in Sources */,
 				83CD960018EA387B00CAB80F /* RESideMenu.m in Sources */,
 				83CD4B7318F385C20009F449 /* IFTTTTransform3DAnimation.m in Sources */,

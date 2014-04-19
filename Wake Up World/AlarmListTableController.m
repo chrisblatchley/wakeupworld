@@ -7,9 +7,6 @@
 #import "AlarmListTableController.h"
 #import "AlarmObject.h"
 #import "AddEditAlarmViewController.h"
-#import "AlarmTableViewCell.h"
-
-#define CUSTOM_CELL @"customCell"
 
 @interface AlarmListTableController ()
 
@@ -18,6 +15,8 @@
 
 - (void) loadData;
 - (void) addAlarm;
+- (void) editAlarm;
+- (void) endEditAlarm;
 - (void) testToggle:(id)sender;
 - (void)toggleAlarmEnabledSwitch:(id)sender;
 
@@ -38,10 +37,8 @@
     [self loadData];
     
     // Setup tableView
-    [self.tableView registerNib:[UINib nibWithNibName:@"AlarmTableViewCell" bundle:nil] forCellReuseIdentifier:CUSTOM_CELL];
-    
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(82, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width - 82, 54 * 5) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -56,8 +53,10 @@
     self.navBar = ({
         UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44)];
         UIBarButtonItem *addAlarmBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:@selector(addAlarm)];
+        UIBarButtonItem *editAlarmBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editAlarm)];
         UINavigationItem *item = [[UINavigationItem alloc] init];
         item.rightBarButtonItem = addAlarmBarButton;
+        item.leftBarButtonItem = editAlarmBarButton;
         [navBar pushNavigationItem:item animated:NO];
         navBar;
     });
@@ -89,7 +88,7 @@
     {
         return [self.alarms count];
     }
-    else return 1;
+    else return 0;
 }
 
 #pragma mark - TableView Delegate Methods
@@ -118,6 +117,17 @@
 
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.alarms removeObjectAtIndex:indexPath.row];
+    
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    if ([tableView isEditing]) {
+        [self endEditAlarm];
+    }
+    
+    NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:self.alarms];
+    [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:@"AlarmListData"];
+    
     NSLog(@"Deleted!");
 }
 
@@ -128,27 +138,31 @@
 //
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = CUSTOM_CELL;
-    AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"reuseIdentifier";
+    
+    UITableViewCell *cell = nil;//[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        // Load the top-level objects from the custom cell XIB.
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AlarmTableViewCell" owner:self options:nil];
-        // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
-        cell = [topLevelObjects objectAtIndex:0];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    if ([self.alarms count]) {
-        NSDateFormatter * dateReader = [[NSDateFormatter alloc] init];
-        [dateReader setDateFormat:@"hh:mm a"];
-        AlarmObject *currentAlarm = [self.alarms objectAtIndex:indexPath.row];
-        
-        BOOL enabled = currentAlarm.enabled;
-        NSString *date = [dateReader stringFromDate:currentAlarm.timeToSetOff];
-        
-        cell.toggle.on = enabled;
-        [cell.toggle addTarget:self action:@selector(toggleAlarmEnabledSwitch:) forControlEvents:UIControlEventValueChanged];
-        cell.time.text = date;
-    }
+    NSDateFormatter * dateReader = [[NSDateFormatter alloc] init];
+    [dateReader setDateFormat:@"hh:mm a"];
+    AlarmObject *currentAlarm = [self.alarms objectAtIndex:indexPath.row];
+    
+    BOOL enabled = currentAlarm.enabled;
+    NSString *date = [dateReader stringFromDate:currentAlarm.timeToSetOff];
+    
+    cell.backgroundColor = [UIColor clearColor];
+    
+    cell.textLabel.textColor = [UIColor whiteColor];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica-light" size:28.0]];
+    cell.textLabel.text = date;
+    
+    UISwitch *enableToggle = [[UISwitch alloc] init];
+    enableToggle.on = enabled;
+    enableToggle.frame = CGRectOffset(enableToggle.frame, cell.contentView.frame.size.width - 3 * enableToggle.frame.size.width, cell.contentView.frame.size.height / 2 - enableToggle.frame.size.height / 2);
+    [enableToggle addTarget:self action:@selector(toggleAlarmEnabledSwitch:) forControlEvents:UIControlEventValueChanged];
+    [cell.contentView addSubview:enableToggle];
     
 	return cell;
 }
@@ -171,6 +185,20 @@
     addAlarmVC.delegate = self;
     [addAlarmVC setEditMode:NO];
     [self presentViewController:addAlarmVC animated:YES completion:nil];
+}
+
+- (void) editAlarm
+{
+    [self.tableView setEditing:YES animated:YES];
+    UIBarButtonItem *cancelAlarmBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(endEditAlarm)];
+    self.navBar.topItem.leftBarButtonItem = cancelAlarmBarButton;
+}
+
+- (void) endEditAlarm
+{
+    [self.tableView setEditing:NO animated:YES];
+    UIBarButtonItem *editAlarmBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editAlarm)];
+    self.navBar.topItem.leftBarButtonItem = editAlarmBarButton;
 }
 
 - (void) testToggle:(id)sender
