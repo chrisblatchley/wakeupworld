@@ -121,14 +121,12 @@
     
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     
-    if ([tableView isEditing]) {
+    if ([tableView isEditing] && self.alarms.count == 0) {
         [self endEditAlarm];
     }
     
     NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:self.alarms];
     [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:@"AlarmListData"];
-    
-    NSLog(@"Deleted!");
 }
 
 //

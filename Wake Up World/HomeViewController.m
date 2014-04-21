@@ -17,27 +17,30 @@
 @interface HomeViewController ()
 
 - (void) updateTime;
-- (IBAction) toggleSnooze:(id)sender;
-- (IBAction)pan:(UIPanGestureRecognizer *)recognizer;
-- (IBAction)touch:(UITapGestureRecognizer *)recognizer;
+- (IBAction) incCredits:(id)sender;
+- (IBAction) decCredits:(id)sender;
+- (IBAction) pan:(UIPanGestureRecognizer *)recognizer;
+- (IBAction) touch:(UITapGestureRecognizer *)recognizer;
+- (void) updateCredits;
 
 @end
 
 @implementation HomeViewController
 
 @synthesize time;
+@synthesize date;
 @synthesize alarmGoingOff;
 @synthesize notificationID;
 @synthesize buttons;
 @synthesize snoozes;
-@synthesize alarms;
+@synthesize credits;
 @synthesize animator;
 @synthesize cotdLabel;
 @synthesize cotdView;
 @synthesize defaultLabel;
 @synthesize defaultView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -46,17 +49,18 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
 }
                                                                             
-- (void)viewWillAppear:(BOOL)animated
+- (void) viewWillAppear:(BOOL)animated
 {
     [self updateTime];
+    [self updateCredits];
 }
                                                                             
-- (void)viewDidAppear:(BOOL)animated
+- (void) viewDidAppear:(BOOL)animated
 {
     //This checks if the home view is shown because of an alarm firing
     if(self.alarmGoingOff)
@@ -80,6 +84,10 @@
     
     [self.time setText:currTime];
     
+    [df setDateFormat:@"EEE, MMM d, yyyy"];
+    currTime = [df stringFromDate:now];
+    [self.date setText:currTime];
+    
     // Delay execution of my block for 10 seconds.
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{ [self updateTime]; });
 }
@@ -94,7 +102,7 @@
     if (animated) {
         [UIView animateWithDuration:0.5 animations:^(){
             [self.buttons setAlpha:1 - self.buttons.alpha];
-            [self.alarms setAlpha:1 - self.alarms.alpha];
+            //[self.alarms setAlpha:1 - self.alarms.alpha];
             CGFloat y = self.snoozes.frame.origin.y < self.view.frame.size.height ? self.snoozes.frame.size.height : -self.snoozes.frame.size.height;
             self.snoozes.frame = CGRectOffset(self.snoozes.frame, 0, y);
         } completion:^(BOOL finished){
@@ -103,7 +111,7 @@
             }
         }];
     } else {
-        [self.alarms setAlpha:1 - self.alarms.alpha];
+        //[self.alarms setAlpha:1 - self.alarms.alpha];
         [self.buttons setAlpha:1 - self.buttons.alpha];
         CGFloat y = self.snoozes.frame.origin.y < self.view.frame.size.height ? self.snoozes.frame.size.height : -self.snoozes.frame.size.height;
         self.snoozes.frame = CGRectOffset(self.snoozes.frame, 0, y);
@@ -111,12 +119,28 @@
     }
 }
 
-- (IBAction) toggleSnooze:(id)sender
+- (void) updateCredits
 {
-    [self toggleSnoozeButtonsWithAnimation:YES];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber * availableCredits = [defaults valueForKey:@"AvailableCredits"];
+    [self.credits setText:[NSString stringWithFormat:@"Credits: %d", [availableCredits intValue]]];
 }
 
-- (IBAction)pan:(UIPanGestureRecognizer *)recognizer
+- (IBAction) incCredits:(id)sender
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:[NSNumber numberWithInt:3] forKey:@"AvailableCredits"];
+    [self updateCredits];
+}
+
+- (IBAction) decCredits:(id)sender
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:[NSNumber numberWithInt:1] forKey:@"AvailableCredits"];
+    [self updateCredits];
+}
+
+- (IBAction) pan:(UIPanGestureRecognizer *)recognizer
 {
     UIView *panView = recognizer.view;
     CGPoint translation = [recognizer translationInView:self.view];
@@ -153,21 +177,13 @@
     }
 }
 
-- (IBAction)touch:(UITapGestureRecognizer *)recognizer
+- (IBAction) touch:(UITapGestureRecognizer *)recognizer
 {
     UIView *touchedView = recognizer.view;
     NSLog(@"%@", touchedView);
-    /*
-    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
-    [animation setFromValue:[NSNumber numberWithFloat:touchedView.frame.origin.x]];
-    [animation setToValue:[NSNumber numberWithFloat:touchedView.frame.origin.x]];
-    [animation setDuration:0.5];
-    [animation setTimingFunction:[CAMediaTimingFunction functionWithControlPoints:.5 :1.8 :1 :1]];
-    [touchedView.layer addAnimation:animation forKey:@"bounceAnim"];
-     */
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 0)
     {
@@ -179,7 +195,7 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+- (void) didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

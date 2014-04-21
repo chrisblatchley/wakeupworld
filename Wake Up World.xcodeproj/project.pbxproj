@@ -399,7 +399,7 @@
 				ORGANIZATIONNAME = "Alex Gordon";
 				TargetAttributes = {
 					7554D02017A3529000FD9730 = {
-						DevelopmentTeam = 48FW2LA7XX;
+						DevelopmentTeam = JXQU3BCQ6N;
 					};
 					7554D04017A3529000FD9730 = {
 						TestTargetID = 7554D02017A3529000FD9730;
