@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIView *cotdView;
 @property (strong, nonatomic) IBOutlet UILabel * defaultLabel;
 @property (strong, nonatomic) IBOutlet UIView *defaultView;
+@property (strong, nonatomic) IBOutlet UIImageView * wakeUp;
 @property (strong, nonatomic) IBOutlet UILabel *credits;
 
 @property (nonatomic) BOOL alarmGoingOff;
@@ -27,5 +28,6 @@
 @property (strong) UIDynamicAnimator* animator;
 
 - (void) toggleSnoozeButtonsWithAnimation:(BOOL)animated;
+- (void) updateCredits;
 
 @end

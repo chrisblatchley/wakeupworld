@@ -43,8 +43,7 @@
     
     RESideMenu *sideMenu = [[RESideMenu alloc] initWithContentViewController:rootViewController leftMenuViewController:nil rightMenuViewController:alarmsController];
     
-    //sideMenu.backgroundImage = [UIImage imageNamed:@"wuw.png"];
-    sideMenu.backgroundImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://placehold.it/940x640"]]];
+    sideMenu.backgroundImage = [UIImage imageNamed:@"Globe-Background.png"];
     sideMenu.bouncesHorizontally = NO;
     
     if (localNotif)
@@ -59,7 +58,7 @@
         IFTTTJazzHandsViewController * introVC = [IFTTTJazzHandsViewController new];
         introVC.view.backgroundColor = [[UIColor alloc] initWithRed:64.0f / 255.0f green:113.0f / 255.0f blue:125.0f / 255.0f alpha:1.0];
         [rootViewController presentViewController:introVC animated:NO completion:nil];
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:APP_HAS_LOADED];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:APP_HAS_LOADED];
     }
     
     return YES;

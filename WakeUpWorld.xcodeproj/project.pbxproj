@@ -48,6 +48,8 @@
 		83CD960118EA387B00CAB80F /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD95FE18EA387B00CAB80F /* UIViewController+RESideMenu.m */; };
 		83CD960418EA43C000CAB80F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CD960318EA43C000CAB80F /* HomeViewController.xib */; };
 		83EEC27518F8D3080026BF66 /* AddEditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EEC27418F8D3080026BF66 /* AddEditAlarmViewController.xib */; };
+		83FA06D019061476002755B8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FA06CE19061476002755B8 /* SettingsViewController.m */; };
+		83FA06D119061476002755B8 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83FA06CF19061476002755B8 /* SettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +67,7 @@
 		75179F9B17B1B0CF003DB84C /* AddEditAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditAlarmViewController.m; sourceTree = "<group>"; };
 		75179FA017B1C6FC003DB84C /* AlarmListTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmListTableController.h; sourceTree = "<group>"; };
 		75179FA117B1C6FC003DB84C /* AlarmListTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmListTableController.m; sourceTree = "<group>"; };
-		7554D02117A3529000FD9730 /* Wake Up World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wake Up World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7554D02117A3529000FD9730 /* WakeUpWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakeUpWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7554D02417A3529000FD9730 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7554D02617A3529000FD9730 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7554D02817A3529000FD9730 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -73,14 +75,14 @@
 		7554D02E17A3529000FD9730 /* Wake Up World-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wake Up World-Info.plist"; sourceTree = "<group>"; };
 		7554D03017A3529000FD9730 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7554D03217A3529000FD9730 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7554D03417A3529000FD9730 /* Wake Up World-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wake Up World-Prefix.pch"; sourceTree = "<group>"; };
+		7554D03417A3529000FD9730 /* WakeUpWorld-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WakeUpWorld-Prefix.pch"; sourceTree = "<group>"; };
 		7554D03517A3529000FD9730 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7554D03617A3529000FD9730 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7554D03917A3529000FD9730 /* Wake_Up_World.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wake_Up_World.xcdatamodel; sourceTree = "<group>"; };
 		7554D03B17A3529000FD9730 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7554D04117A3529000FD9730 /* Wake Up WorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wake Up WorldTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7554D04117A3529000FD9730 /* WakeUpWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakeUpWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7554D04217A3529000FD9730 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		7554D04B17A3529000FD9730 /* Wake Up WorldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wake Up WorldTests-Info.plist"; sourceTree = "<group>"; };
+		7554D04B17A3529000FD9730 /* WakeUpWorldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WakeUpWorldTests-Info.plist"; sourceTree = "<group>"; };
 		7554D04D17A3529000FD9730 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7554D04F17A3529000FD9730 /* Wake_Up_WorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Wake_Up_WorldTests.m; sourceTree = "<group>"; };
 		7554D05A17A355BA00FD9730 /* OBShapedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBShapedButton.m; sourceTree = "<group>"; };
@@ -129,6 +131,9 @@
 		83CD95FE18EA387B00CAB80F /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		83CD960318EA43C000CAB80F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		83EEC27418F8D3080026BF66 /* AddEditAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEditAlarmViewController.xib; sourceTree = "<group>"; };
+		83FA06CD19061476002755B8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		83FA06CE19061476002755B8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		83FA06CF19061476002755B8 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +175,8 @@
 		7554D02217A3529000FD9730 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7554D02117A3529000FD9730 /* Wake Up World.app */,
-				7554D04117A3529000FD9730 /* Wake Up WorldTests.xctest */,
+				7554D02117A3529000FD9730 /* WakeUpWorld.app */,
+				7554D04117A3529000FD9730 /* WakeUpWorldTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				83CD960518EA43DC00CAB80F /* HomeViewController */,
 				83CD960818EA450F00CAB80F /* AlarmListTableController */,
 				83CD960A18EA495D00CAB80F /* AddEditAlarmViewController */,
+				83FA06CC19061420002755B8 /* SettingsViewController */,
 				7554D03B17A3529000FD9730 /* Images.xcassets */,
 				7554D03817A3529000FD9730 /* Wake_Up_World.xcdatamodeld */,
 				7554D02D17A3529000FD9730 /* Supporting Files */,
@@ -213,7 +219,7 @@
 				7554D02E17A3529000FD9730 /* Wake Up World-Info.plist */,
 				7554D02F17A3529000FD9730 /* InfoPlist.strings */,
 				7554D03217A3529000FD9730 /* main.m */,
-				7554D03417A3529000FD9730 /* Wake Up World-Prefix.pch */,
+				7554D03417A3529000FD9730 /* WakeUpWorld-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -230,7 +236,7 @@
 		7554D04A17A3529000FD9730 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7554D04B17A3529000FD9730 /* Wake Up WorldTests-Info.plist */,
+				7554D04B17A3529000FD9730 /* WakeUpWorldTests-Info.plist */,
 				7554D04C17A3529000FD9730 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -351,12 +357,22 @@
 			name = AddEditAlarmViewController;
 			sourceTree = "<group>";
 		};
+		83FA06CC19061420002755B8 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				83FA06CD19061476002755B8 /* SettingsViewController.h */,
+				83FA06CE19061476002755B8 /* SettingsViewController.m */,
+				83FA06CF19061476002755B8 /* SettingsViewController.xib */,
+			);
+			name = SettingsViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7554D02017A3529000FD9730 /* Wake Up World */ = {
+		7554D02017A3529000FD9730 /* WakeUpWorld */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7554D05317A3529000FD9730 /* Build configuration list for PBXNativeTarget "Wake Up World" */;
+			buildConfigurationList = 7554D05317A3529000FD9730 /* Build configuration list for PBXNativeTarget "WakeUpWorld" */;
 			buildPhases = (
 				7554D01D17A3529000FD9730 /* Sources */,
 				7554D01E17A3529000FD9730 /* Frameworks */,
@@ -366,14 +382,14 @@
 			);
 			dependencies = (
 			);
-			name = "Wake Up World";
+			name = WakeUpWorld;
 			productName = "Wake Up World";
-			productReference = 7554D02117A3529000FD9730 /* Wake Up World.app */;
+			productReference = 7554D02117A3529000FD9730 /* WakeUpWorld.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7554D04017A3529000FD9730 /* Wake Up WorldTests */ = {
+		7554D04017A3529000FD9730 /* WakeUpWorldTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7554D05617A3529000FD9730 /* Build configuration list for PBXNativeTarget "Wake Up WorldTests" */;
+			buildConfigurationList = 7554D05617A3529000FD9730 /* Build configuration list for PBXNativeTarget "WakeUpWorldTests" */;
 			buildPhases = (
 				7554D03D17A3529000FD9730 /* Sources */,
 				7554D03E17A3529000FD9730 /* Frameworks */,
@@ -384,9 +400,9 @@
 			dependencies = (
 				7554D04817A3529000FD9730 /* PBXTargetDependency */,
 			);
-			name = "Wake Up WorldTests";
+			name = WakeUpWorldTests;
 			productName = "Wake Up WorldTests";
-			productReference = 7554D04117A3529000FD9730 /* Wake Up WorldTests.xctest */;
+			productReference = 7554D04117A3529000FD9730 /* WakeUpWorldTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +422,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7554D01C17A3529000FD9730 /* Build configuration list for PBXProject "Wake Up World" */;
+			buildConfigurationList = 7554D01C17A3529000FD9730 /* Build configuration list for PBXProject "WakeUpWorld" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -418,8 +434,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7554D02017A3529000FD9730 /* Wake Up World */,
-				7554D04017A3529000FD9730 /* Wake Up WorldTests */,
+				7554D02017A3529000FD9730 /* WakeUpWorld */,
+				7554D04017A3529000FD9730 /* WakeUpWorldTests */,
 			);
 		};
 /* End PBXProject section */
@@ -429,6 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83FA06D119061476002755B8 /* SettingsViewController.xib in Resources */,
 				7554D03117A3529000FD9730 /* InfoPlist.strings in Resources */,
 				83EEC27518F8D3080026BF66 /* AddEditAlarmViewController.xib in Resources */,
 				7554D03C17A3529000FD9730 /* Images.xcassets in Resources */,
@@ -464,6 +481,7 @@
 				83CD4B6D18F385C20009F449 /* IFTTTAnimationKeyFrame.m in Sources */,
 				75179F9E17B1B0CF003DB84C /* AddEditAlarmViewController.m in Sources */,
 				83CD4B7118F385C20009F449 /* IFTTTHideAnimation.m in Sources */,
+				83FA06D019061476002755B8 /* SettingsViewController.m in Sources */,
 				83CD960018EA387B00CAB80F /* RESideMenu.m in Sources */,
 				83CD4B7318F385C20009F449 /* IFTTTTransform3DAnimation.m in Sources */,
 				83CD4B7218F385C20009F449 /* IFTTTScaleAnimation.m in Sources */,
@@ -494,7 +512,7 @@
 /* Begin PBXTargetDependency section */
 		7554D04817A3529000FD9730 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7554D02017A3529000FD9730 /* Wake Up World */;
+			target = 7554D02017A3529000FD9730 /* WakeUpWorld */;
 			targetProxy = 7554D04717A3529000FD9730 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -595,10 +613,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Wake Up World/Wake Up World-Prefix.pch";
+				GCC_PREFIX_HEADER = "Wake Up World/WakeUpWorld-Prefix.pch";
 				INFOPLIST_FILE = "Wake Up World/Wake Up World-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WakeUpWorld;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -612,10 +630,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Wake Up World/Wake Up World-Prefix.pch";
+				GCC_PREFIX_HEADER = "Wake Up World/WakeUpWorld-Prefix.pch";
 				INFOPLIST_FILE = "Wake Up World/Wake Up World-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WakeUpWorld;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -636,8 +654,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Wake Up WorldTests/Wake Up WorldTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Wake Up WorldTests/WakeUpWorldTests-Info.plist";
+				PRODUCT_NAME = WakeUpWorldTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -654,8 +672,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wake Up World/Wake Up World-Prefix.pch";
-				INFOPLIST_FILE = "Wake Up WorldTests/Wake Up WorldTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Wake Up WorldTests/WakeUpWorldTests-Info.plist";
+				PRODUCT_NAME = WakeUpWorldTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -664,7 +682,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7554D01C17A3529000FD9730 /* Build configuration list for PBXProject "Wake Up World" */ = {
+		7554D01C17A3529000FD9730 /* Build configuration list for PBXProject "WakeUpWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7554D05117A3529000FD9730 /* Debug */,
@@ -673,7 +691,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7554D05317A3529000FD9730 /* Build configuration list for PBXNativeTarget "Wake Up World" */ = {
+		7554D05317A3529000FD9730 /* Build configuration list for PBXNativeTarget "WakeUpWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7554D05417A3529000FD9730 /* Debug */,
@@ -682,7 +700,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7554D05617A3529000FD9730 /* Build configuration list for PBXNativeTarget "Wake Up WorldTests" */ = {
+		7554D05617A3529000FD9730 /* Build configuration list for PBXNativeTarget "WakeUpWorldTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7554D05717A3529000FD9730 /* Debug */,

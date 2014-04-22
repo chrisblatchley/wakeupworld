@@ -314,8 +314,9 @@
     [self.scrollView addSubview:self.WUWlogoIntro];
     
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [closeButton setTitle:@"I'm Ready!" forState:UIControlStateNormal];
-    //[closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [closeButton setTitle:@"Get Started" forState:UIControlStateNormal];
+    closeButton.titleLabel.font = [UIFont systemFontOfSize:28.0];
+    [closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     closeButton.frame = CGRectMake(timeForPage(4), self.view.frame.size.height - 100, self.view.frame.size.width, 100);
     [closeButton addTarget:self action:@selector(closeIntro) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:closeButton];

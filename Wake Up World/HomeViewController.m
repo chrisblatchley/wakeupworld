@@ -12,6 +12,7 @@
 #import "AlarmEditViewController.h"
 #import "AddEditAlarmViewController.h"
 #import "AlarmListTableController.h"
+#import "SettingsViewController.h"
 
 
 @interface HomeViewController ()
@@ -19,9 +20,10 @@
 - (void) updateTime;
 - (IBAction) incCredits:(id)sender;
 - (IBAction) decCredits:(id)sender;
+- (IBAction) toggleAlarm:(id)sender;
 - (IBAction) pan:(UIPanGestureRecognizer *)recognizer;
 - (IBAction) touch:(UITapGestureRecognizer *)recognizer;
-- (void) updateCredits;
+- (IBAction) showSettings:(id)sender;
 
 @end
 
@@ -92,6 +94,11 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{ [self updateTime]; });
 }
 
+- (IBAction) toggleAlarm:(id)sender
+{
+    [self toggleSnoozeButtonsWithAnimation:YES];
+}
+
 - (void) toggleSnoozeButtonsWithAnimation:(BOOL)animated;
 {
     // make sure snoozes view is visible before animate up
@@ -102,7 +109,8 @@
     if (animated) {
         [UIView animateWithDuration:0.5 animations:^(){
             [self.buttons setAlpha:1 - self.buttons.alpha];
-            //[self.alarms setAlpha:1 - self.alarms.alpha];
+            [self.credits setAlpha:1 - self.credits.alpha];
+            [self.wakeUp setAlpha:1 - self.wakeUp.alpha];
             CGFloat y = self.snoozes.frame.origin.y < self.view.frame.size.height ? self.snoozes.frame.size.height : -self.snoozes.frame.size.height;
             self.snoozes.frame = CGRectOffset(self.snoozes.frame, 0, y);
         } completion:^(BOOL finished){
@@ -111,8 +119,9 @@
             }
         }];
     } else {
-        //[self.alarms setAlpha:1 - self.alarms.alpha];
         [self.buttons setAlpha:1 - self.buttons.alpha];
+        [self.credits setAlpha:1 - self.credits.alpha];
+        [self.wakeUp setAlpha:1 - self.wakeUp.alpha];
         CGFloat y = self.snoozes.frame.origin.y < self.view.frame.size.height ? self.snoozes.frame.size.height : -self.snoozes.frame.size.height;
         self.snoozes.frame = CGRectOffset(self.snoozes.frame, 0, y);
         self.snoozes.hidden = !self.snoozes.hidden;
@@ -123,20 +132,29 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber * availableCredits = [defaults valueForKey:@"AvailableCredits"];
-    [self.credits setText:[NSString stringWithFormat:@"Credits: %d", [availableCredits intValue]]];
+    if ([availableCredits intValue] <=5 ) {
+        [self.credits setTextColor:[UIColor redColor]];
+    } else {
+        [self.credits setTextColor:[UIColor colorWithRed:56/255.0 green:163/255.0 blue:104/255.0 alpha:1]];
+    }
+    [self.credits setText:[NSString stringWithFormat:@"Snoozes: %d", [availableCredits intValue]]];
 }
 
 - (IBAction) incCredits:(id)sender
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:[NSNumber numberWithInt:3] forKey:@"AvailableCredits"];
+    NSNumber *creds = [defaults valueForKey:@"AvailableCredits"];
+    creds = [NSNumber numberWithInt:[creds intValue] + 1];
+    [defaults setValue:creds forKey:@"AvailableCredits"];
     [self updateCredits];
 }
 
 - (IBAction) decCredits:(id)sender
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:[NSNumber numberWithInt:1] forKey:@"AvailableCredits"];
+    NSNumber *creds = [defaults valueForKey:@"AvailableCredits"];
+    creds = [NSNumber numberWithInt:[creds intValue] - 1];
+    [defaults setValue:creds forKey:@"AvailableCredits"];
     [self updateCredits];
 }
 
@@ -168,6 +186,11 @@
             } completion:^(BOOL finished){
                 [self toggleSnoozeButtonsWithAnimation:YES];
                 panView.frame = CGRectOffset(panView.frame, - panView.frame.origin.x - 320, 0);
+                if (panView != self.wakeUp) {
+                    [self decCredits:nil];
+                    // TODO: Restart alarm for 9 min.
+                }
+                [((AppDelegate *)[[UIApplication sharedApplication] delegate]).player stop];
             }];
         } else {
             [UIView animateWithDuration:0.5 animations:^(){
@@ -181,6 +204,13 @@
 {
     UIView *touchedView = recognizer.view;
     NSLog(@"%@", touchedView);
+}
+
+- (IBAction) showSettings:(id)sender
+{
+    SettingsViewController * settings = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    settings.homeViewController = self;
+    [self presentViewController:settings animated:YES completion:nil];
 }
 
 - (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
