@@ -132,11 +132,6 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber * availableCredits = [defaults valueForKey:@"AvailableCredits"];
-    if ([availableCredits intValue] <=5 ) {
-        [self.credits setTextColor:[UIColor redColor]];
-    } else {
-        [self.credits setTextColor:[UIColor colorWithRed:56/255.0 green:163/255.0 blue:104/255.0 alpha:1]];
-    }
     [self.credits setText:[NSString stringWithFormat:@"Snoozes: %d", [availableCredits intValue]]];
 }
 

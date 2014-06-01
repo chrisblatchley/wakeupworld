@@ -128,12 +128,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Purchase Credits" message:@"Would you like to purchase more snooze credits?" delegate:nil cancelButtonTitle:@"Nevermind" otherButtonTitles:@"14 Credits: $0.99", @"28 Credits: $1.99", @"70 Credits: $4.99", nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Purchase Credits" message:@"Would you like to purchase more snooze credits?" delegate:self cancelButtonTitle:@"Nevermind" otherButtonTitles:@"14 Credits: $0.99", @"28 Credits: $1.99", @"70 Credits: $4.99", nil];
         [av show];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Set My Charity" message:[NSString stringWithFormat:@"%@ is grateful for your support!", [self.charities objectAtIndex:indexPath.row]] delegate:self cancelButtonTitle:@"Nevermind" otherButtonTitles:@"OK", nil];
-        [av show];
+        //UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:[NSString stringWithFormat:@"%@ is grateful for your support!", [self.charities objectAtIndex:indexPath.row]] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        //[av show];
     }
 }
 
@@ -141,26 +141,25 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if ([alertView numberOfButtons] > 2) {
-        NSLog(@"adding credits");
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSNumber *creds = [defaults valueForKey:@"AvailableCredits"];
-        switch (buttonIndex) {
-            case 0:
-                creds = [NSNumber numberWithInt:[creds intValue] + 14];
-                break;
-            case 1:
-                creds = [NSNumber numberWithInt:[creds intValue] + 28];
-                break;
-            case 2:
-                creds = [NSNumber numberWithInt:[creds intValue] + 70];
-                break;
-            default:
-                break;
-        }
-        [defaults setValue:creds forKey:@"AvailableCredits"];
-        [self.homeViewController updateCredits];
+    NSLog(@"%d", buttonIndex);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *creds = [defaults valueForKey:@"AvailableCredits"];
+    switch (buttonIndex) {
+        case 1:
+            creds = [NSNumber numberWithInt:[creds intValue] + 14];
+            break;
+        case 2:
+            creds = [NSNumber numberWithInt:[creds intValue] + 28];
+            break;
+        case 3:
+            creds = [NSNumber numberWithInt:[creds intValue] + 70];
+            break;
+        case 0:
+        default:
+            break;
     }
+    [defaults setValue:creds forKey:@"AvailableCredits"];
+    [self.homeViewController updateCredits];
 }
 
 
